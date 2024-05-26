@@ -103,11 +103,10 @@
 			children = (
 				DF0C551E2BE3995C00C635BD /* AppDelegate.swift */,
 				DF0C55202BE3995C00C635BD /* SceneDelegate.swift */,
-				DF0C55222BE3995C00C635BD /* ImagesListViewController.swift */,
-				DF3528EF2BF13E62002B1FB0 /* ImagesListCell.swift */,
+				DFAF0B262BF4BC1400D60DE4 /* ImagesList */,
 				DF0C55242BE3995C00C635BD /* Main.storyboard */,
-				DF0C55272BE3995E00C635BD /* Assets.xcassets */,
 				DF0C55292BE3995E00C635BD /* LaunchScreen.storyboard */,
+				DF0C55272BE3995E00C635BD /* Assets.xcassets */,
 				DF0C552C2BE3995E00C635BD /* Info.plist */,
 			);
 			path = ImageFeed;
@@ -128,6 +127,15 @@
 				DF0C55412BE3995E00C635BD /* ImageFeedUITestsLaunchTests.swift */,
 			);
 			path = ImageFeedUITests;
+			sourceTree = "<group>";
+		};
+		DFAF0B262BF4BC1400D60DE4 /* ImagesList */ = {
+			isa = PBXGroup;
+			children = (
+				DF0C55222BE3995C00C635BD /* ImagesListViewController.swift */,
+				DF3528EF2BF13E62002B1FB0 /* ImagesListCell.swift */,
+			);
+			path = ImagesList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
