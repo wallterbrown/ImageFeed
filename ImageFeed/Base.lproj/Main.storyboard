@@ -38,6 +38,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="Exit"/>
+                                <connections>
+                                    <action selector="didTapExitButton:" destination="8a7-TK-uri" eventType="touchUpInside" id="vrm-Vt-gL6"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="3aN-bI-Qd1">
                                 <rect key="frame" x="16" y="91" width="70" height="70"/>
@@ -76,6 +79,13 @@
                             <constraint firstItem="odG-Ve-qRa" firstAttribute="leading" secondItem="fVh-tO-oBc" secondAttribute="leading" id="xuK-K3-UyJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="3aN-bI-Qd1" id="Ga4-1f-qPm"/>
+                        <outlet property="descriptionLabel" destination="pnb-yb-TSC" id="bqb-kG-IDK"/>
+                        <outlet property="exitButton" destination="HTj-bu-ad1" id="kd3-PS-rnn"/>
+                        <outlet property="loginNameLable" destination="odG-Ve-qRa" id="cet-6T-2lZ"/>
+                        <outlet property="userNameLable" destination="fVh-tO-oBc" id="8cY-Th-MPT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gjU-YS-8mq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
