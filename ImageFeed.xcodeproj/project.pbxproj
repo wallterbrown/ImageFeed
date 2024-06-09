@@ -9,15 +9,20 @@
 /* Begin PBXBuildFile section */
 		DF0C551F2BE3995C00C635BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C551E2BE3995C00C635BD /* AppDelegate.swift */; };
 		DF0C55212BE3995C00C635BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C55202BE3995C00C635BD /* SceneDelegate.swift */; };
-		DF0C55232BE3995C00C635BD /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C55222BE3995C00C635BD /* ImagesListViewController.swift */; };
 		DF0C55262BE3995C00C635BD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DF0C55252BE3995C00C635BD /* Base */; };
 		DF0C55282BE3995E00C635BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF0C55272BE3995E00C635BD /* Assets.xcassets */; };
 		DF0C552B2BE3995E00C635BD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DF0C552A2BE3995E00C635BD /* Base */; };
 		DF0C55362BE3995E00C635BD /* ImageFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C55352BE3995E00C635BD /* ImageFeedTests.swift */; };
 		DF0C55402BE3995E00C635BD /* ImageFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C553F2BE3995E00C635BD /* ImageFeedUITests.swift */; };
 		DF0C55422BE3995E00C635BD /* ImageFeedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C55412BE3995E00C635BD /* ImageFeedUITestsLaunchTests.swift */; };
-		DF25FADC2C0A595500908269 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF25FADB2C0A595500908269 /* ImagesListCell.swift */; };
 		DF871EF02C076F9000C1E163 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF871EEF2C076F9000C1E163 /* ProfileViewController.swift */; };
+		DFF70FFB2C15900A00EB40BC /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF70FFA2C15900A00EB40BC /* SingleImageViewController.swift */; };
+		DFF89ED82C1592A70023DB32 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */; };
+		DFF89ED92C1592A70023DB32 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */; };
+		DFF89EDA2C1592A70023DB32 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */; };
+		DFF89EDB2C1592A70023DB32 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */; };
+		DFF89EDC2C1592A70023DB32 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */; };
+		DFF89EDD2C1592A70023DB32 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +46,6 @@
 		DF0C551B2BE3995C00C635BD /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0C551E2BE3995C00C635BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF0C55202BE3995C00C635BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DF0C55222BE3995C00C635BD /* ImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
 		DF0C55252BE3995C00C635BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF0C55272BE3995E00C635BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF0C552A2BE3995E00C635BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,8 +55,10 @@
 		DF0C553B2BE3995E00C635BD /* ImageFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0C553F2BE3995E00C635BD /* ImageFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedUITests.swift; sourceTree = "<group>"; };
 		DF0C55412BE3995E00C635BD /* ImageFeedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DF25FADB2C0A595500908269 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		DF871EEF2C076F9000C1E163 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DFF70FFA2C15900A00EB40BC /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
+		DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
+		DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +89,9 @@
 		DF0C55122BE3995C00C635BD = {
 			isa = PBXGroup;
 			children = (
+				DFF70FFA2C15900A00EB40BC /* SingleImageViewController.swift */,
 				DF871EEF2C076F9000C1E163 /* ProfileViewController.swift */,
+				DFF89ED72C1592A70023DB32 /* ImagesList */,
 				DF0C551D2BE3995C00C635BD /* ImageFeed */,
 				DF0C55342BE3995E00C635BD /* ImageFeedTests */,
 				DF0C553E2BE3995E00C635BD /* ImageFeedUITests */,
@@ -106,7 +114,6 @@
 			children = (
 				DF0C551E2BE3995C00C635BD /* AppDelegate.swift */,
 				DF0C55202BE3995C00C635BD /* SceneDelegate.swift */,
-				DFAF0B262BF4BC1400D60DE4 /* ImagesList */,
 				DF0C55242BE3995C00C635BD /* Main.storyboard */,
 				DF0C55292BE3995E00C635BD /* LaunchScreen.storyboard */,
 				DF0C55272BE3995E00C635BD /* Assets.xcassets */,
@@ -132,11 +139,11 @@
 			path = ImageFeedUITests;
 			sourceTree = "<group>";
 		};
-		DFAF0B262BF4BC1400D60DE4 /* ImagesList */ = {
+		DFF89ED72C1592A70023DB32 /* ImagesList */ = {
 			isa = PBXGroup;
 			children = (
-				DF0C55222BE3995C00C635BD /* ImagesListViewController.swift */,
-				DF25FADB2C0A595500908269 /* ImagesListCell.swift */,
+				DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */,
+				DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */,
 			);
 			path = ImagesList;
 			sourceTree = "<group>";
@@ -272,10 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF0C55232BE3995C00C635BD /* ImagesListViewController.swift in Sources */,
+				DFF89EDB2C1592A70023DB32 /* ImagesListViewController.swift in Sources */,
 				DF871EF02C076F9000C1E163 /* ProfileViewController.swift in Sources */,
-				DF25FADC2C0A595500908269 /* ImagesListCell.swift in Sources */,
 				DF0C551F2BE3995C00C635BD /* AppDelegate.swift in Sources */,
+				DFF89ED82C1592A70023DB32 /* ImagesListCell.swift in Sources */,
+				DFF70FFB2C15900A00EB40BC /* SingleImageViewController.swift in Sources */,
 				DF0C55212BE3995C00C635BD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFF89EDC2C1592A70023DB32 /* ImagesListViewController.swift in Sources */,
 				DF0C55362BE3995E00C635BD /* ImageFeedTests.swift in Sources */,
+				DFF89ED92C1592A70023DB32 /* ImagesListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +304,8 @@
 			files = (
 				DF0C55422BE3995E00C635BD /* ImageFeedUITestsLaunchTests.swift in Sources */,
 				DF0C55402BE3995E00C635BD /* ImageFeedUITests.swift in Sources */,
+				DFF89EDD2C1592A70023DB32 /* ImagesListViewController.swift in Sources */,
+				DFF89EDA2C1592A70023DB32 /* ImagesListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
