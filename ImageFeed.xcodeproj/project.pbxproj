@@ -18,11 +18,7 @@
 		DF871EF02C076F9000C1E163 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF871EEF2C076F9000C1E163 /* ProfileViewController.swift */; };
 		DFF70FFB2C15900A00EB40BC /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF70FFA2C15900A00EB40BC /* SingleImageViewController.swift */; };
 		DFF89ED82C1592A70023DB32 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */; };
-		DFF89ED92C1592A70023DB32 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */; };
-		DFF89EDA2C1592A70023DB32 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */; };
 		DFF89EDB2C1592A70023DB32 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */; };
-		DFF89EDC2C1592A70023DB32 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */; };
-		DFF89EDD2C1592A70023DB32 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,9 +85,6 @@
 		DF0C55122BE3995C00C635BD = {
 			isa = PBXGroup;
 			children = (
-				DFF70FFA2C15900A00EB40BC /* SingleImageViewController.swift */,
-				DF871EEF2C076F9000C1E163 /* ProfileViewController.swift */,
-				DFF89ED72C1592A70023DB32 /* ImagesList */,
 				DF0C551D2BE3995C00C635BD /* ImageFeed */,
 				DF0C55342BE3995E00C635BD /* ImageFeedTests */,
 				DF0C553E2BE3995E00C635BD /* ImageFeedUITests */,
@@ -114,6 +107,9 @@
 			children = (
 				DF0C551E2BE3995C00C635BD /* AppDelegate.swift */,
 				DF0C55202BE3995C00C635BD /* SceneDelegate.swift */,
+				DFF89ED72C1592A70023DB32 /* ImagesList */,
+				DFF89EDF2C1593F90023DB32 /* Profile */,
+				DFF89EDE2C1593BD0023DB32 /* SignleImageView */,
 				DF0C55242BE3995C00C635BD /* Main.storyboard */,
 				DF0C55292BE3995E00C635BD /* LaunchScreen.storyboard */,
 				DF0C55272BE3995E00C635BD /* Assets.xcassets */,
@@ -146,6 +142,22 @@
 				DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */,
 			);
 			path = ImagesList;
+			sourceTree = "<group>";
+		};
+		DFF89EDE2C1593BD0023DB32 /* SignleImageView */ = {
+			isa = PBXGroup;
+			children = (
+				DFF70FFA2C15900A00EB40BC /* SingleImageViewController.swift */,
+			);
+			name = SignleImageView;
+			sourceTree = "<group>";
+		};
+		DFF89EDF2C1593F90023DB32 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DF871EEF2C076F9000C1E163 /* ProfileViewController.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,9 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFF89EDC2C1592A70023DB32 /* ImagesListViewController.swift in Sources */,
 				DF0C55362BE3995E00C635BD /* ImageFeedTests.swift in Sources */,
-				DFF89ED92C1592A70023DB32 /* ImagesListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,8 +314,6 @@
 			files = (
 				DF0C55422BE3995E00C635BD /* ImageFeedUITestsLaunchTests.swift in Sources */,
 				DF0C55402BE3995E00C635BD /* ImageFeedUITests.swift in Sources */,
-				DFF89EDD2C1592A70023DB32 /* ImagesListViewController.swift in Sources */,
-				DFF89EDA2C1592A70023DB32 /* ImagesListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

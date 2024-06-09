@@ -124,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="PM8-EL-UuJ">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yTU-bm-E4X"/>
@@ -136,6 +136,10 @@
                             <constraint firstItem="yTU-bm-E4X" firstAttribute="bottom" secondItem="PM8-EL-UuJ" secondAttribute="bottom" id="iMB-Wf-L6s"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="w5w-g9-c29"/>
+                    <connections>
+                        <outlet property="imageView" destination="PM8-EL-UuJ" id="yiB-8Y-ta8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLk-Lw-Qcn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,6 +230,7 @@
                     <navigationItem key="navigationItem" id="Ya3-co-MbR"/>
                     <connections>
                         <outlet property="TableViewFeed" destination="sDv-89-1wm" id="kN2-hl-KsR"/>
+                        <segue destination="1i5-I7-x1q" kind="show" identifier="ShowSingleImage" id="mmH-ma-441"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
