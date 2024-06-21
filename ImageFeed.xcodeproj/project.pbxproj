@@ -15,6 +15,7 @@
 		DF0C55362BE3995E00C635BD /* ImageFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C55352BE3995E00C635BD /* ImageFeedTests.swift */; };
 		DF0C55402BE3995E00C635BD /* ImageFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C553F2BE3995E00C635BD /* ImageFeedUITests.swift */; };
 		DF0C55422BE3995E00C635BD /* ImageFeedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C55412BE3995E00C635BD /* ImageFeedUITestsLaunchTests.swift */; };
+		DF1049D82C255A380099FF2F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1049D72C255A380099FF2F /* Constants.swift */; };
 		DF871EF02C076F9000C1E163 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF871EEF2C076F9000C1E163 /* ProfileViewController.swift */; };
 		DFF70FFB2C15900A00EB40BC /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF70FFA2C15900A00EB40BC /* SingleImageViewController.swift */; };
 		DFF89ED82C1592A70023DB32 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */; };
@@ -51,6 +52,7 @@
 		DF0C553B2BE3995E00C635BD /* ImageFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0C553F2BE3995E00C635BD /* ImageFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedUITests.swift; sourceTree = "<group>"; };
 		DF0C55412BE3995E00C635BD /* ImageFeedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DF1049D72C255A380099FF2F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DF871EEF2C076F9000C1E163 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DFF70FFA2C15900A00EB40BC /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
 		DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				DF0C551E2BE3995C00C635BD /* AppDelegate.swift */,
 				DF0C55202BE3995C00C635BD /* SceneDelegate.swift */,
+				DF1049D72C255A380099FF2F /* Constants.swift */,
 				DFF89ED72C1592A70023DB32 /* ImagesList */,
 				DFF89EDF2C1593F90023DB32 /* Profile */,
 				DFF89EDE2C1593BD0023DB32 /* SignleImageView */,
@@ -295,6 +298,7 @@
 				DF871EF02C076F9000C1E163 /* ProfileViewController.swift in Sources */,
 				DF0C551F2BE3995C00C635BD /* AppDelegate.swift in Sources */,
 				DFF89ED82C1592A70023DB32 /* ImagesListCell.swift in Sources */,
+				DF1049D82C255A380099FF2F /* Constants.swift in Sources */,
 				DFF70FFB2C15900A00EB40BC /* SingleImageViewController.swift in Sources */,
 				DF0C55212BE3995C00C635BD /* SceneDelegate.swift in Sources */,
 			);
