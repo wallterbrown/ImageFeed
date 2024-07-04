@@ -68,4 +68,3 @@ extension SingleImageViewController: UIScrollViewDelegate {
 }
 
 
-//pull_sprint_10
