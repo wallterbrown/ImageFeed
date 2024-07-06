@@ -13,7 +13,6 @@ final class WebViewViewController: UIViewController{
     enum WebViewConstants {
           static let unsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
       }
-    
     weak var delegate: WebViewViewControllerDelegate?
     
     @IBOutlet private var webView: WKWebView!
