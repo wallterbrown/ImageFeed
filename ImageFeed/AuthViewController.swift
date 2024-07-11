@@ -8,14 +8,15 @@
 import UIKit
 
 protocol AuthViewControllerDelegate: AnyObject {
-    func didAuthenticate(_ vc: AuthViewController)
     func authViewController(_ vc: AuthViewController, didAuthenticateWithCode code: String)
 }
 
-final class AuthViewController: UIViewController{
+final class AuthViewController: UIViewController {
+    
+    weak var delegate: AuthViewControllerDelegate?
+    
     private let ShowWebViewSegueIdentifier = "ShowWebView"
     private let oauth2Service = OAuth2Service.shared
-    weak var delegate: AuthViewControllerDelegate?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ShowWebViewSegueIdentifier {
@@ -27,14 +28,28 @@ final class AuthViewController: UIViewController{
             super.prepare(for: segue, sender: sender)
         }
     }
+    
+    private func fetchOAuthToken(_ code: String) {
+        oauth2Service.fetchOAuthToken(code: code) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                // self.switchToTabBarController()
+                self.delegate?.authViewController(self, didAuthenticateWithCode: code)
+            case .failure:
+                // TODO [Sprint 11]
+                break
+            }
+        }
+    }
 }
 
 extension AuthViewController: WebViewViewControllerDelegate {
     func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
-        delegate?.authViewController(self, didAuthenticateWithCode: code)
+        fetchOAuthToken(code)
+        //delegate?.authViewController(self, didAuthenticateWithCode: code)
     }
-
-
+    
     func webViewViewControllerDidCancel(_ vc: WebViewViewController) {
         dismiss(animated: true)
     }
