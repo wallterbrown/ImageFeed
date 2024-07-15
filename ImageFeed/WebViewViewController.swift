@@ -11,8 +11,8 @@ import WebKit
 final class WebViewViewController: UIViewController{
     
     enum WebViewConstants {
-          static let unsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
-      }
+        static let unsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
+    }
     weak var delegate: WebViewViewControllerDelegate?
     
     @IBOutlet private var webView: WKWebView!
@@ -56,7 +56,7 @@ final class WebViewViewController: UIViewController{
         of object: Any?,
         change: [NSKeyValueChangeKey : Any]?,
         context: UnsafeMutableRawPointer?
-        ){
+    ){
         if keyPath == #keyPath(WKWebView.estimatedProgress) {
             updateProgress()
         } else {
@@ -65,26 +65,26 @@ final class WebViewViewController: UIViewController{
     }
     
     private func loadAuthView() {
-           guard var urlComponents = URLComponents(string: WebViewConstants.unsplashAuthorizeURLString) else {
-               print("Ошибка формирования URLComponents")
-               return
-           }
-           
-           urlComponents.queryItems = [
-               URLQueryItem(name: "client_id", value: Constants.accessKey),
-               URLQueryItem(name: "redirect_uri", value: Constants.redirectURI),
-               URLQueryItem(name: "response_type", value: "code"),
-               URLQueryItem(name: "scope", value: Constants.accessScope)
-           ]
-           
-           guard let url = urlComponents.url else {
-               print("Ошибка получения urlComponents.url")
-               return
-           }
-           
-           let request = URLRequest(url: url)
-           webView.load(request)
-       }
+        guard var urlComponents = URLComponents(string: WebViewConstants.unsplashAuthorizeURLString) else {
+            print("Ошибка формирования URLComponents")
+            return
+        }
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "client_id", value: Constants.accessKey),
+            URLQueryItem(name: "redirect_uri", value: Constants.redirectURI),
+            URLQueryItem(name: "response_type", value: "code"),
+            URLQueryItem(name: "scope", value: Constants.accessScope)
+        ]
+        
+        guard let url = urlComponents.url else {
+            print("Ошибка получения urlComponents.url")
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        webView.load(request)
+    }
     
     private func updateProgress() {
         progressView.progress = Float(webView.estimatedProgress)

@@ -10,7 +10,7 @@ import Foundation
 final class OAuth2Service {
     static let shared = OAuth2Service()
     private init() {}
-
+    
     private let oAuth2TokenStorage = OAuth2TokenStorage()
     
     private func makeOAuthTokenRequest(code: String) -> URLRequest? {
