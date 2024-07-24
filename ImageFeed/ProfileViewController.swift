@@ -13,14 +13,45 @@ final class ProfileViewController: UIViewController{
     private var loginNameLable: UILabel?
     private var descriptionLabel: UILabel?
     
+    private let profileService = ProfileService.shared
+    private let tokenStorage = OAuth2TokenStorage.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
+        updateProfileDetails()
+    }
+    
+    private func setUI(){
         setAvatarImage()
         setExitButton()
         setNameLabel()
         setLoginLabel()
         setDescriptionLabel()
     }
+    
+    private func updateProfileDetails() {
+           guard let token = tokenStorage.token else {
+               print("Token is missing.")
+               return
+           }
+           
+           profileService.fetchProfile(token) { [weak self] result in
+               guard let self = self else { return }
+               switch result {
+               case .success(let profile):
+                   DispatchQueue.main.async {
+                       self.userNameLable?.text = profile.name
+                       self.loginNameLable?.text = profile.loginName
+                       self.descriptionLabel?.text = profile.bio
+                   }
+               case .failure(let error):
+                   DispatchQueue.main.async {
+                       print("Error fetching profile: \(error)")
+                   }
+               }
+           }
+       }
     
     private func setAvatarImage() {
         let AvatarImage = UIImageView(image: UIImage(named: "avatar"))

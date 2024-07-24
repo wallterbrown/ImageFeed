@@ -7,19 +7,9 @@
 
 import Foundation
 
-struct OAuthTokenResponse: Decodable {
+struct OAuthTokenResponse: Codable {
     let accessToken: String
-    
-    enum CodingKeys: String, CodingKey {
-        case accessToken = "access_token"
-    }
-    
-    static func decodeTokenResponse(from data: Data) -> Result<String, Error> {
-        do {
-            let response = try JSONDecoder().decode(OAuthTokenResponse.self, from: data)
-            return .success(response.accessToken)
-        } catch {
-            return .failure(error)
-        }
-    }
+        let tokenType: String
+        let scope: String
+        let createdAt: Int
 }
