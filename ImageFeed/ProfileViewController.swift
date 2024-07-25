@@ -5,6 +5,7 @@
 //  Created by Всеволод Нагаев on 29.05.2024.
 //
 import UIKit
+import Kingfisher
 final class ProfileViewController: UIViewController{
     
     private var avatarImageView: UIImageView?
@@ -15,34 +16,44 @@ final class ProfileViewController: UIViewController{
     
     private var profileImageServiceObserver: NSObjectProtocol?
     
+    private var profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
+    
     private let profileService = ProfileService.shared
     private let tokenStorage = OAuth2TokenStorage.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.ypBlack
         setUI()
         updateProfileDetails()
         
         profileImageServiceObserver = NotificationCenter.default    // 2
-                    .addObserver(
-                        forName: ProfileImageService.didChangeNotification, // 3
-                        object: nil,                                        // 4
-                        queue: .main                                        // 5
-                    ) { [weak self] _ in
-                        guard let self = self else { return }
-                        self.updateAvatar()                                 // 6
-                    }
-                updateAvatar()                                              // 7
+            .addObserver(
+                forName: ProfileImageService.didChangeNotification, // 3
+                object: nil,                                        // 4
+                queue: .main                                        // 5
+            ) { [weak self] _ in
+                guard let self = self else { return }
+                self.updateAvatar()                                 // 6
             }
+        updateAvatar()                                              // 7
+    }
     
-private func updateAvatar() {                                   // 8
-       guard
-           let profileImageURL = ProfileImageService.shared.avatarURL,
-           let url = URL(string: profileImageURL)
-       else { return }
-       // TODO [Sprint 11] Обновитt аватар, используя Kingfisher
-   }
-
+    private func updateAvatar() {                                   // 8
+        guard
+            let profileImageURL = ProfileImageService.shared.avatarURL,
+            let imageURL = URL(string: profileImageURL)
+        else { return }
+        //используя Kingfisher
+        profileImageView.kf.indicatorType = .activity
+        profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile-placeholder"))
+    }
+    
     private func setUI(){
         setAvatarImage()
         setExitButton()
@@ -75,18 +86,20 @@ private func updateAvatar() {                                   // 8
     }
     
     private func setAvatarImage() {
-        let AvatarImage = UIImageView(image: UIImage(named: "avatar"))
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        AvatarImage.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(AvatarImage)
+        view.addSubview(profileImageView)
         
         NSLayoutConstraint.activate([
-            AvatarImage.heightAnchor.constraint(equalToConstant: 70),
-            AvatarImage.widthAnchor.constraint(equalToConstant: 70),
-            AvatarImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-            AvatarImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
+            profileImageView.heightAnchor.constraint(equalToConstant: 70),
+            profileImageView.widthAnchor.constraint(equalToConstant: 70),
+            profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            profileImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
         ])
-        self.avatarImageView = AvatarImage
+        
+        profileImageView.layer.cornerRadius = 35
+        
+        self.avatarImageView = profileImageView
     }
     
     private func setExitButton(){

@@ -16,6 +16,21 @@ final class SplashViewController: UIViewController {
     private let profileImageService = ProfileImageService.shared
     
     
+    private var logoImageView: UIImageView = {
+           let imageView = UIImageView()
+           imageView.image = UIImage(named: "launch-screen-logo")
+           imageView.translatesAutoresizingMaskIntoConstraints = false
+           return imageView
+       }()
+    
+    override func viewDidLoad() {
+            super.viewDidLoad()
+            self.view.backgroundColor = UIColor.ypBlack
+            
+            // рисуем интерфейс
+            addLogoImageView()
+        }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -52,6 +67,13 @@ final class SplashViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
+    
+    private func addLogoImageView() {
+            view.addSubview(logoImageView)
+            
+            logoImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            logoImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        }
     
     private func switchToTabBarController() {
         guard let window = UIApplication.shared.windows.first else { fatalError("Invalid Configuration") }
@@ -97,7 +119,7 @@ extension SplashViewController: AuthViewControllerDelegate {
                 
                 switch result {
                 case .success(_):
-                    // self.fetchProfileImageURL(username: result.username, token: token)
+                    //self.fetchProfileImageURL(username: result.username, token: token)
                     self.switchToTabBarController()
                 case .failure(let error):
                     print(error)
