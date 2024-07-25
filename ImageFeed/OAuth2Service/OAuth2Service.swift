@@ -7,17 +7,16 @@
 
 import Foundation
 
-    enum AuthServiceError: Error {
+enum AuthServiceError: Error {
     case invalidRequest
 }
 
 final class OAuth2Service {
-    
     static let shared = OAuth2Service()
+    
     private let oAuth2TokenStorage = OAuth2TokenStorage.shared
     private let urlSession = URLSession.shared
     private var currentTask: URLSessionTask?
-    private var pendingCompletions: [(Result<String, Error>) -> Void] = []
     private var currentCode: String?
     
     private init() {}

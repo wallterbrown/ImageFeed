@@ -13,6 +13,8 @@ final class ProfileViewController: UIViewController{
     private var loginNameLable: UILabel?
     private var descriptionLabel: UILabel?
     
+    private var profileImageServiceObserver: NSObjectProtocol?
+    
     private let profileService = ProfileService.shared
     private let tokenStorage = OAuth2TokenStorage.shared
     
@@ -20,8 +22,27 @@ final class ProfileViewController: UIViewController{
         super.viewDidLoad()
         setUI()
         updateProfileDetails()
-    }
+        
+        profileImageServiceObserver = NotificationCenter.default    // 2
+                    .addObserver(
+                        forName: ProfileImageService.didChangeNotification, // 3
+                        object: nil,                                        // 4
+                        queue: .main                                        // 5
+                    ) { [weak self] _ in
+                        guard let self = self else { return }
+                        self.updateAvatar()                                 // 6
+                    }
+                updateAvatar()                                              // 7
+            }
     
+private func updateAvatar() {                                   // 8
+       guard
+           let profileImageURL = ProfileImageService.shared.avatarURL,
+           let url = URL(string: profileImageURL)
+       else { return }
+       // TODO [Sprint 11] Обновитt аватар, используя Kingfisher
+   }
+
     private func setUI(){
         setAvatarImage()
         setExitButton()
@@ -31,27 +52,27 @@ final class ProfileViewController: UIViewController{
     }
     
     private func updateProfileDetails() {
-           guard let token = tokenStorage.token else {
-               print("Token is missing.")
-               return
-           }
-           
-           profileService.fetchProfile(token) { [weak self] result in
-               guard let self = self else { return }
-               switch result {
-               case .success(let profile):
-                   DispatchQueue.main.async {
-                       self.userNameLable?.text = profile.name
-                       self.loginNameLable?.text = profile.loginName
-                       self.descriptionLabel?.text = profile.bio
-                   }
-               case .failure(let error):
-                   DispatchQueue.main.async {
-                       print("Error fetching profile: \(error)")
-                   }
-               }
-           }
-       }
+        guard let token = tokenStorage.token else {
+            print("Token is missing.")
+            return
+        }
+        
+        profileService.fetchProfile(token) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let profile):
+                DispatchQueue.main.async {
+                    self.userNameLable?.text = profile.name
+                    self.loginNameLable?.text = profile.loginName
+                    self.descriptionLabel?.text = profile.bio
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    print("Error fetching profile: \(error)")
+                }
+            }
+        }
+    }
     
     private func setAvatarImage() {
         let AvatarImage = UIImageView(image: UIImage(named: "avatar"))
@@ -152,7 +173,7 @@ final class ProfileViewController: UIViewController{
     
     @objc
     private func exitButtonDidTap(){
-        
+        print("ExitButtonTapped")
     }
 }
 

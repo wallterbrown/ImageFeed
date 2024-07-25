@@ -51,7 +51,7 @@
         <!--AuthViewController-->
         <scene sceneID="cB0-9x-2cF">
             <objects>
-                <viewController title="AuthViewController" id="GB4-2T-a3E" customClass="AuthViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" title="AuthViewController" id="GB4-2T-a3E" customClass="AuthViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M7e-Py-fA0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
