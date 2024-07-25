@@ -68,6 +68,7 @@ final class SplashViewController: UIViewController {
         .lightContent
     }
     
+    
     private func addLogoImageView() {
             view.addSubview(logoImageView)
             

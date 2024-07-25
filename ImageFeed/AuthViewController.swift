@@ -30,20 +30,6 @@ final class AuthViewController: UIViewController {
             super.prepare(for: segue, sender: sender)
         }
     }
-    
-    private func fetchOAuthToken(_ code: String) {
-        oauth2Service.fetchOAuthToken(code: code) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success:
-                // self.switchToTabBarController()
-                self.delegate?.authViewController(self, didAuthenticateWithCode: code)
-            case .failure:
-                // TODO [Sprint 11]
-                break
-            }
-        }
-    }
 }
 
 extension AuthViewController: WebViewViewControllerDelegate {
@@ -64,7 +50,7 @@ extension AuthViewController: WebViewViewControllerDelegate {
                 print(error)
                 DispatchQueue.main.async {
                     // показываем алерт с ошибкой
-                    let alert = UIAlertController(title: "Что-то пошло не так :(", message: "Не удалось войти в систему", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Ошибка!", message: "Не удалось войти в систему", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }

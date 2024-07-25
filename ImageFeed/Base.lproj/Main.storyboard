@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo_of_Unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="a1q-Op-fBA">
-                                <rect key="frame" x="166.66666666666666" y="430.66666666666669" width="60" height="60"/>
+                                <rect key="frame" x="166.66666666666666" y="408.66666666666669" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="fWy-Zp-TZQ"/>
                                     <constraint firstAttribute="width" constant="60" id="zwQ-ur-y0v"/>
@@ -301,24 +301,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvf-ah-Cwo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="215" y="-1244"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="8g0-2J-EsZ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8gI-Zi-NLe" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NVG-2g-Lwn">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="GB4-2T-a3E" kind="relationship" relationship="rootViewController" id="Czq-rg-iEo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7SV-wa-e1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1540" y="-1244"/>
         </scene>
     </scenes>
     <resources>
