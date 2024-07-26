@@ -12,24 +12,22 @@ final class SplashViewController: UIViewController {
     private let showAuthenticationScreenSegueIdentifier = "ShowAuthenticationScreen"
     
     private let storage = OAuth2TokenStorage.shared
-    private let profileService = ProfileService.shared  // Используем синглтон
+    private let profileService = ProfileService.shared
     private let profileImageService = ProfileImageService.shared
     
     
     private var logoImageView: UIImageView = {
-           let imageView = UIImageView()
-           imageView.image = UIImage(named: "launch-screen-logo")
-           imageView.translatesAutoresizingMaskIntoConstraints = false
-           return imageView
-       }()
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "launch-screen-logo")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     override func viewDidLoad() {
-            super.viewDidLoad()
-            self.view.backgroundColor = UIColor.ypBlack
-            
-            // рисуем интерфейс
-            addLogoImageView()
-        }
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor.ypBlack
+        addLogoImageView()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -68,13 +66,12 @@ final class SplashViewController: UIViewController {
         .lightContent
     }
     
-    
     private func addLogoImageView() {
-            view.addSubview(logoImageView)
-            
-            logoImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-            logoImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        }
+        view.addSubview(logoImageView)
+        
+        logoImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        logoImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+    }
     
     private func switchToTabBarController() {
         guard let window = UIApplication.shared.windows.first else { fatalError("Invalid Configuration") }
@@ -86,17 +83,16 @@ final class SplashViewController: UIViewController {
     }
     
     private func fetchProfileImageURL(username: String, token: String) {
-          profileImageService.fetchProfileImageURL(username: username, token: token) { result in
-              switch result {
-              case .success(let result):
-                  print("fetchProfileImageURL: \(result)")
-              case .failure(let error):
-                  print(error)
-              }
-          }
-      }
+        profileImageService.fetchProfileImageURL(username: username, token: token) { result in
+            switch result {
+            case .success(let result):
+                print("fetchProfileImageURL: \(result)")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
-
 
 extension SplashViewController: AuthViewControllerDelegate {
     func didAuthenticate(_ vc: AuthViewController) {
@@ -107,7 +103,6 @@ extension SplashViewController: AuthViewControllerDelegate {
                 
                 switch result {
                 case .success(_):
-                    //self.fetchProfileImageURL(username: result.username, token: token)
                     self.switchToTabBarController()
                 case .failure(let error):
                     print(error)
@@ -132,7 +127,6 @@ extension SplashViewController: AuthViewControllerDelegate {
             }
         }
     }
-    
     
     func authViewController(_ vc: AuthViewController, didAuthenticateWithCode code: String) {
         // Обработка кода аутентификации, если нужно

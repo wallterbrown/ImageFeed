@@ -24,6 +24,7 @@ final class OAuth2Service {
         assert(Thread.isMainThread)
         
         guard currentCode != code else {
+            print("[OAuth2Service: fetchOAuthToken]: Invalid request")
             completion(.failure(AuthServiceError.invalidRequest))
             return
         }
@@ -32,6 +33,7 @@ final class OAuth2Service {
         currentCode = code
         
         guard let request = makeOAuthTokenRequest(code: code) else {
+            print("[OAuth2Service: fetchOAuthToken]: Error while creating request")
             completion(.failure(AuthServiceError.invalidRequest))
             return
         }
@@ -42,7 +44,9 @@ final class OAuth2Service {
                 let tokenStorage = OAuth2TokenStorage.shared
                 tokenStorage.token = data.accessToken
                 completion(.success(nil))
-            case .failure(let error): completion(.failure(error))
+            case .failure(let error): 
+                print("[OAuth2Service: fetchOAuthToken]: Network error")
+                completion(.failure(error))
             }
             self?.currentTask = nil
             self?.currentCode = nil

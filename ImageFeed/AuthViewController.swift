@@ -35,12 +35,12 @@ extension AuthViewController: WebViewViewControllerDelegate {
     func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
         vc.dismiss(animated: true)
         
-        UIBlockingProgressHUD.show() // показать индикатор загрузки
+        UIBlockingProgressHUD.show()
         
         oauth2Service.fetchOAuthToken(code: code) { [weak self] result in
             guard let self = self else { return }
             
-            UIBlockingProgressHUD.dismiss() // скрыть индикатор загрузки
+            UIBlockingProgressHUD.dismiss()
             
             switch result {
             case .success:
@@ -48,8 +48,7 @@ extension AuthViewController: WebViewViewControllerDelegate {
             case .failure(let error):
                 print(error)
                 DispatchQueue.main.async {
-                    // показываем алерт с ошибкой
-                    let alert = UIAlertController(title: "Ошибка!", message: "Не удалось войти в систему", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Что-то пошло не так(", message: "Не удалось войти в систему", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
