@@ -5,6 +5,7 @@
 //  Created by Всеволод Нагаев on 29.05.2024.
 //
 import UIKit
+import Kingfisher
 final class ProfileViewController: UIViewController{
     
     private var avatarImageView: UIImageView?
@@ -13,8 +14,46 @@ final class ProfileViewController: UIViewController{
     private var loginNameLable: UILabel?
     private var descriptionLabel: UILabel?
     
+    private var profileImageServiceObserver: NSObjectProtocol?
+    
+    private var profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
+    
+    private let profileService = ProfileService.shared
+    private let tokenStorage = OAuth2TokenStorage.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.ypBlack
+        setUI()
+        updateProfileDetails()
+        
+        profileImageServiceObserver = NotificationCenter.default
+            .addObserver(
+                forName: ProfileImageService.didChangeNotification,
+                object: nil,
+                queue: .main
+            ) { [weak self] _ in
+                guard let self = self else { return }
+                self.updateAvatar()
+            }
+        updateAvatar()
+    }
+    
+    private func updateAvatar() {
+        guard
+            let profileImageURL = ProfileImageService.shared.avatarURL,
+            let imageURL = URL(string: profileImageURL)
+        else { return }
+        profileImageView.kf.indicatorType = .activity
+        profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile-placeholder"))
+    }
+    
+    private func setUI(){
         setAvatarImage()
         setExitButton()
         setNameLabel()
@@ -22,19 +61,44 @@ final class ProfileViewController: UIViewController{
         setDescriptionLabel()
     }
     
-    private func setAvatarImage() {
-        let AvatarImage = UIImageView(image: UIImage(named: "avatar"))
+    private func updateProfileDetails() {
+        guard let token = tokenStorage.token else {
+            print("Token is missing.")
+            return
+        }
         
-        AvatarImage.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(AvatarImage)
+        profileService.fetchProfile(token) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let profile):
+                DispatchQueue.main.async {
+                    self.userNameLable?.text = profile.name
+                    self.loginNameLable?.text = profile.loginName
+                    self.descriptionLabel?.text = profile.bio
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    print("Error fetching profile: \(error)")
+                }
+            }
+        }
+    }
+    
+    private func setAvatarImage() {
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(profileImageView)
         
         NSLayoutConstraint.activate([
-            AvatarImage.heightAnchor.constraint(equalToConstant: 70),
-            AvatarImage.widthAnchor.constraint(equalToConstant: 70),
-            AvatarImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-            AvatarImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
+            profileImageView.heightAnchor.constraint(equalToConstant: 70),
+            profileImageView.widthAnchor.constraint(equalToConstant: 70),
+            profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            profileImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
         ])
-        self.avatarImageView = AvatarImage
+        
+        profileImageView.layer.cornerRadius = 35
+        
+        self.avatarImageView = profileImageView
     }
     
     private func setExitButton(){
@@ -121,7 +185,7 @@ final class ProfileViewController: UIViewController{
     
     @objc
     private func exitButtonDidTap(){
-        
+        print("ExitButtonTapped")
     }
 }
 
