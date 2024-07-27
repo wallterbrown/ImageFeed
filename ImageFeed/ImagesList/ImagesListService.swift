@@ -8,6 +8,7 @@
 import Foundation
 
 final class ImagesListService {
+    static let shared = ImagesListService()
     static let didChangeNotification = Notification.Name(rawValue: "ImagesListServiceDidChange")
     
     private (set) var photos: [Photo] = []
@@ -32,7 +33,7 @@ final class ImagesListService {
                    
                    switch result {
                    case .success(let newPhotos):
-                      // addToPhotos(newPhotos: newPhotos)
+                      addToPhotos(newPhotos: newPhotos)
                        NotificationCenter.default.post(
                            name: ImagesListService.didChangeNotification,
                            object: self
@@ -67,4 +68,22 @@ final class ImagesListService {
             
             return request
         }
+    
+    private func addToPhotos(newPhotos: [PhotoResult]) {
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+          
+          for photo in newPhotos {
+              let newPhoto = Photo(
+                  id: photo.id,
+                  size: CGSize(width: photo.width, height: photo.height),
+                  createdAt: dateFormatter.date(from: photo.createdAt),
+                  welcomeDescription: photo.description,
+                  thumbImageURL: photo.urls.thumb,
+                  largeImageURL: photo.urls.full,
+                  isLiked: photo.likedByUser
+              )
+              photos.append(newPhoto)
+          }
+      }
 }
