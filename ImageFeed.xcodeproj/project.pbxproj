@@ -39,6 +39,7 @@
 		DFEC14752C4D0528008D3820 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEC14742C4D0528008D3820 /* ProfileService.swift */; };
 		DFEC14772C4D0717008D3820 /* ProfileResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEC14762C4D0717008D3820 /* ProfileResult.swift */; };
 		DFF70FFB2C15900A00EB40BC /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF70FFA2C15900A00EB40BC /* SingleImageViewController.swift */; };
+		DFF71A1F2C555720009E4CE3 /* ProfileLogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF71A1E2C555720009E4CE3 /* ProfileLogoutService.swift */; };
 		DFF89ED82C1592A70023DB32 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */; };
 		DFF89EDB2C1592A70023DB32 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		DFEC14742C4D0528008D3820 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		DFEC14762C4D0717008D3820 /* ProfileResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResult.swift; sourceTree = "<group>"; };
 		DFF70FFA2C15900A00EB40BC /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
+		DFF71A1E2C555720009E4CE3 /* ProfileLogoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogoutService.swift; sourceTree = "<group>"; };
 		DFF89ED52C1592A70023DB32 /* ImagesListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		DFF89ED62C1592A70023DB32 /* ImagesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +269,7 @@
 				DFEC14742C4D0528008D3820 /* ProfileService.swift */,
 				DF7A43802C52636F006E757D /* ProfileImageService.swift */,
 				DF7A43822C526455006E757D /* ProfileImageBody.swift */,
+				DFF71A1E2C555720009E4CE3 /* ProfileLogoutService.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				DF7A43832C526455006E757D /* ProfileImageBody.swift in Sources */,
 				DF706D222C2830F80078A0E5 /* AuthViewController.swift in Sources */,
 				DF0780E82C36D79100E184D1 /* AccessTokenResponse.swift in Sources */,
+				DFF71A1F2C555720009E4CE3 /* ProfileLogoutService.swift in Sources */,
 				DF1049D82C255A380099FF2F /* Constants.swift in Sources */,
 				DF18268D2C52B29C00AD1837 /* TabBarController.swift in Sources */,
 				DF4D0A012C399C4000999ED1 /* SplashViewController.swift in Sources */,

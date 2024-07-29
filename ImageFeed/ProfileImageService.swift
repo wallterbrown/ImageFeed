@@ -49,7 +49,7 @@ final class ProfileImageService{
                     object: self,
                     userInfo: ["URL": profileImageURL]
                 )
-            case .failure(let error): 
+            case .failure(let error):
                 print("[ProfileImageService: fetchProfileImageURL]: Network error")
                 completion(.failure(error))
             }
@@ -68,5 +68,8 @@ final class ProfileImageService{
         request.httpMethod = "GET"
         
         return request
+    }
+    func cleanProfileImage() {
+        avatarURL = nil
     }
 }
