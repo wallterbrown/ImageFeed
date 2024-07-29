@@ -39,7 +39,7 @@ final class ProfileLogoutService {
     }
     
     private func cleanTokenStorage() {
-        OAuth2TokenStorage().token = nil
+        OAuth2TokenStorage.shared.token = nil
     }
 }
 
