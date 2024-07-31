@@ -22,13 +22,13 @@ class ImageFeedUITests: XCTestCase {
         
         let webView = app.webViews["UnsplashWebView"]
         XCTAssertTrue(webView.waitForExistence(timeout: 5))
-
+        
         let loginTextField = webView.descendants(matching: .textField).element
         XCTAssertTrue(loginTextField.waitForExistence(timeout: 5))
         
         loginTextField.tap()
         sleep(1)
-        loginTextField.typeText("dev@nagaev-nagaev.ru")
+        loginTextField.typeText("secret@mail.ru")
         let startPoint1 = loginTextField.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
         let finishPoint1 = loginTextField.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: -5))
         startPoint1.press(forDuration: 0, thenDragTo: finishPoint1)
@@ -37,8 +37,8 @@ class ImageFeedUITests: XCTestCase {
         XCTAssertTrue(passwordTextField.waitForExistence(timeout: 5))
         
         passwordTextField.tap()
-        sleep(1)
-        passwordTextField.typeText("unsplash#Vn27032003")
+        sleep(5)
+        passwordTextField.typeText("secret")
         
         webView.buttons["Login"].tap()
         
@@ -60,7 +60,7 @@ class ImageFeedUITests: XCTestCase {
             XCTFail("Cell to like not found or not hittable")
             return
         }
-
+        
         cellToLike.buttons["like_button"].tap()
         sleep(1)
         cellToLike.buttons["like_button"].tap()
@@ -79,7 +79,7 @@ class ImageFeedUITests: XCTestCase {
     func testProfile() throws {
         sleep(3)
         app.tabBars.buttons.element(boundBy: 1).tap()
-       
+        
         XCTAssertTrue(app.staticTexts["Vsevolod Nagaev"].exists)
         XCTAssertTrue(app.staticTexts["@wallterbrown"].exists)
         

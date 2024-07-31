@@ -9,22 +9,20 @@ import XCTest
 
 final class ImageListTests: XCTestCase {
     func testViewControllerCallsFetchPhotosNextPage() {
-        //given
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "ImagesListViewController") as! ImagesListViewController
         let presenter = ImagesListPresenterSpy()
         viewController.presenter = presenter
         presenter.view = viewController
         
-        //when
         _ = viewController.view
         
-        //then
         XCTAssertTrue(presenter.fetchPhotosNextPageCalled)
     }
     
     func testCellHeight() {
-        //given
+        
         let presenter = ImagesListPresenter()
         presenter.photos = [
             Photo(
@@ -38,10 +36,8 @@ final class ImageListTests: XCTestCase {
             )
         ]
         
-        //when
         let cellHeight = presenter.getCellHeight(100, 0)
         
-        //then
         XCTAssertEqual(cellHeight, 76)
     }
 }

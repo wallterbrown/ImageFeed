@@ -67,7 +67,6 @@ final class ProfileViewController: UIViewController & ProfileViewViewControllerP
         
         presenter?.viewDidLoad()
         
-        // получаем фото пользователя
         profileImageServiceObserver = NotificationCenter.default.addObserver(
             forName: ProfileImageService.didChangeNotification,
             object: nil,
@@ -127,7 +126,7 @@ final class ProfileViewController: UIViewController & ProfileViewViewControllerP
         
         let logoutAction = UIAlertAction(title: "Да", style: .default) { [weak self] _ in
             self?.presenter?.logout()
-            // Возвращаемся на SplashViewController
+
             if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
                 window.rootViewController = SplashViewController()
             }
