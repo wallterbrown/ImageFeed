@@ -10,7 +10,7 @@ import Kingfisher
 import ProgressHUD
 
 final class ImagesListViewController: UIViewController {
-    @IBOutlet private var TableViewFeed: UITableView!
+    @IBOutlet private var tableViewFeed: UITableView!
     
     private let showSingleImageSegueIdentifier = "ShowSingleImage"
     
@@ -30,7 +30,7 @@ final class ImagesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        TableViewFeed.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+        tableViewFeed.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
         
         imagesListServiceObserver = NotificationCenter.default.addObserver(
             forName: ImagesListService.didChangeNotification,
@@ -84,11 +84,11 @@ final class ImagesListViewController: UIViewController {
         let newCount = imagesListService.photos.count
         photos = imagesListService.photos
         if oldCount != newCount {
-            TableViewFeed.performBatchUpdates {
+            tableViewFeed.performBatchUpdates {
                 let indexPaths = (oldCount..<newCount).map { i in
                     IndexPath(row: i, section: 0)
                 }
-                TableViewFeed.insertRows(at: indexPaths, with: .automatic)
+                tableViewFeed.insertRows(at: indexPaths, with: .automatic)
             } completion: { _ in }
         }
     }
@@ -139,7 +139,7 @@ extension ImagesListViewController: UITableViewDelegate {
 
 extension ImagesListViewController: ImagesListCellDelegate {
     func imageListCellDidTapLike(_ cell: ImagesListCell) {
-        guard let indexPath = TableViewFeed.indexPath(for: cell) else { return }
+        guard let indexPath = tableViewFeed.indexPath(for: cell) else { return }
         let photo = photos[indexPath.row]
         UIBlockingProgressHUD.show()
         imagesListService.changeLike(photoId: photo.id, isLike: !photo.isLiked) { result in
@@ -147,11 +147,10 @@ extension ImagesListViewController: ImagesListCellDelegate {
             case .success:
                 self.photos = self.imagesListService.photos
                 cell.setIsLiked(self.photos[indexPath.row].isLiked)
-                UIBlockingProgressHUD.dismiss()
             case .failure:
-                UIBlockingProgressHUD.dismiss()
                 self.showAlert(title: "Что-то пошло не так (", message: "Попробуйте ещё раз позже")
             }
+            UIBlockingProgressHUD.dismiss()
         }
     }
     

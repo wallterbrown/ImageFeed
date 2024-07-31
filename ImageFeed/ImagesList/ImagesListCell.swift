@@ -11,11 +11,11 @@ final class ImagesListCell: UITableViewCell {
     private let imagesListService = ImagesListService.shared
     weak var delegate: ImagesListCellDelegate?
     
-    @IBOutlet var cellImage: UIImageView!
-    @IBOutlet var likeButton: UIButton!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
     
-    @IBAction func LikeButtonTapped(_ sender: Any) {
+    @IBAction private func LikeButtonTapped(_ sender: Any) {
         delegate?.imageListCellDidTapLike(self)
     }
     
