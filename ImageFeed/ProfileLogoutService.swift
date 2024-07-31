@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import WebKit
 
 final class ProfileLogoutService {
@@ -39,7 +38,7 @@ final class ProfileLogoutService {
     }
     
     private func cleanTokenStorage() {
-        OAuth2TokenStorage.shared.token = nil
+        OAuth2TokenStorage().token = nil
     }
 }
 

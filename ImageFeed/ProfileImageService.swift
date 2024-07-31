@@ -6,24 +6,21 @@
 //
 
 import Foundation
-final class ProfileImageService{
+
+final class ProfileImageService {
     static let shared = ProfileImageService()
     static let didChangeNotification = Notification.Name(rawValue: "ProfileImageProviderDidChange")
     
     private(set) var avatarURL: String?
     
     private let urlSession = URLSession.shared
-    private let apiURL = "https://api.unsplash.com/users"
     private var task: URLSessionTask?
     private var lastUsername: String?
-    
-    private init() {}
     
     func fetchProfileImageURL(username: String, token: String, _ completion: @escaping (Result<String, Error>) -> Void) {
         assert(Thread.isMainThread)
         
         guard lastUsername != username else {
-            print("[ProfileImageService: fetchProfileImageURL]: Error while creating request")
             completion(.failure(AuthServiceError.invalidRequest))
             return
         }
@@ -49,9 +46,7 @@ final class ProfileImageService{
                     object: self,
                     userInfo: ["URL": profileImageURL]
                 )
-            case .failure(let error):
-                print("[ProfileImageService: fetchProfileImageURL]: Network error")
-                completion(.failure(error))
+            case .failure(let error): completion(.failure(error))
             }
             self.task = nil
             self.lastUsername = nil
@@ -61,7 +56,7 @@ final class ProfileImageService{
     }
     
     private func makeProfileDataRequest(username: String, token: String) -> URLRequest? {
-        guard let url = URL(string: "\(apiURL)/\(username)") else { return nil }
+        guard let url = URL(string: "\(Constants.defaultBaseURLString)/users/\(username)") else { return nil }
         
         var request = URLRequest(url: url)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -69,7 +64,9 @@ final class ProfileImageService{
         
         return request
     }
+    
     func cleanProfileImage() {
         avatarURL = nil
     }
 }
+

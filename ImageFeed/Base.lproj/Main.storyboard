@@ -46,6 +46,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlP-tZ-582">
                                 <rect key="frame" x="16" y="680" width="361" height="48"/>
                                 <color key="backgroundColor" name="YPWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Authenticate"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="he2-tu-ue0"/>
                                 </constraints>
@@ -61,7 +62,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BeM-4K-GKY" kind="presentation" identifier="ShowWebView" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="fpc-K6-zOe"/>
+                                    <segue destination="BeM-4K-GKY" kind="presentation" identifier="ShowWebView" id="fpc-K6-zOe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -190,6 +191,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eN-YT-etT" userLabel="Like button">
                                                     <rect key="frame" x="333" y="4" width="44" height="44"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="like_button"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="Epi-Qq-p92"/>
                                                         <constraint firstAttribute="height" constant="44" id="w9z-YY-cBf"/>
@@ -240,24 +242,24 @@
                     <tabBarItem key="tabBarItem" title="" image="tab_editorial_active" id="2wc-Ec-ETd"/>
                     <navigationItem key="navigationItem" id="Ya3-co-MbR"/>
                     <connections>
-                        <outlet property="TableViewFeed" destination="sDv-89-1wm" id="kN2-hl-KsR"/>
+                        <outlet property="tableViewFeed" destination="sDv-89-1wm" id="eym-ch-zBD"/>
                         <segue destination="1i5-I7-x1q" kind="presentation" identifier="ShowSingleImage" id="p4n-AZ-KKJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-706" y="-435"/>
+            <point key="canvasLocation" x="-560" y="-435"/>
         </scene>
         <!--Web View View Controller-->
         <scene sceneID="Hd1-lV-hH3">
             <objects>
-                <viewController id="BeM-4K-GKY" customClass="WebViewViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewViewController" id="BeM-4K-GKY" customClass="WebViewViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qr1-Sz-btY">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ho6-Wg-CLF">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <color key="backgroundColor" name="YPWhite"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -266,6 +268,7 @@
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncr-VW-zdp">
                                 <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
+                                <accessibility key="accessibilityConfiguration" identifier="nav_back_button"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="tBb-wq-949"/>
                                     <constraint firstAttribute="width" constant="64" id="uAk-en-cpu"/>

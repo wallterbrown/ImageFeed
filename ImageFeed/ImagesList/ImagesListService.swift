@@ -47,8 +47,8 @@ final class ImagesListService {
     }
     
     private func makePhotosRequest(page: Int, perPage: Int) -> URLRequest? {
-        guard let baseURL = URL(string: Constants.defaultBaseURL) else { return nil }
-        guard let token = OAuth2TokenStorage.shared.token else { return nil }
+        guard let baseURL = URL(string: Constants.defaultBaseURLString) else { return nil }
+        guard let token = OAuth2TokenStorage().token else { return nil }
         
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         components?.path = "/photos"
@@ -87,8 +87,8 @@ final class ImagesListService {
     }
     
     func changeLike(photoId: String, isLike: Bool, _ completion: @escaping (Result<Void?, Error>) -> Void) {
-        guard let token = OAuth2TokenStorage.shared.token else { return }
-        guard let url = URL(string: "\(Constants.defaultBaseURL)/photos/\(photoId)/like") else { return }
+        guard let token = OAuth2TokenStorage().token else { return }
+        guard let url = URL(string: "\(Constants.defaultBaseURLString)/photos/\(photoId)/like") else { return }
         
         var request = URLRequest(url: url)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -113,4 +113,3 @@ final class ImagesListService {
         photos = []
     }
 }
-

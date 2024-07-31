@@ -41,7 +41,7 @@ final class OAuth2Service {
         let task = urlSession.objectTask(for: request) { [weak self] (result: Result<OAuthTokenResponse, Error>) in
             switch result {
             case .success(let data):
-                let tokenStorage = OAuth2TokenStorage.shared
+                let tokenStorage = OAuth2TokenStorage()
                 tokenStorage.token = data.accessToken
                 completion(.success(nil))
             case .failure(let error): 

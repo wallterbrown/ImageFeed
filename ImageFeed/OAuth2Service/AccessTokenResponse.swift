@@ -9,7 +9,7 @@ import Foundation
 
 struct OAuthTokenResponse: Codable {
     let accessToken: String
-        let tokenType: String
-        let scope: String
-        let createdAt: Int
+    let tokenType: String
+    let scope: String
+    let createdAt: Int
 }
