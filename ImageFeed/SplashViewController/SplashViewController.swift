@@ -129,7 +129,6 @@ extension SplashViewController: AuthViewControllerDelegate {
     }
     
     func authViewController(_ vc: AuthViewController, didAuthenticateWithCode code: String) {
-        // Обработка кода аутентификации, если нужно
         switchToTabBarController()
     }
 }

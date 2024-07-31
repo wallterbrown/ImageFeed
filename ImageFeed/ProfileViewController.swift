@@ -185,7 +185,21 @@ final class ProfileViewController: UIViewController{
     
     @objc
     private func exitButtonDidTap(){
-        print("ExitButtonTapped")
+        let alertController = UIAlertController(title: "Уже уходишь?", message: "Уверены, что хотите выйти?", preferredStyle: .alert)
+        
+        let logoutAction = UIAlertAction(title: "Да", style: .default) { _ in
+            ProfileLogoutService.shared.logout()
+            
+            if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
+                window.rootViewController = SplashViewController()
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Нет", style: .cancel, handler: nil)
+        
+        alertController.addAction(logoutAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
 
