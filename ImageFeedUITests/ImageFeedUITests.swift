@@ -4,8 +4,9 @@
 //
 //  Created by Всеволод Нагаев on 31.07.2024.
 //
-
+@testable import ImageFeed
 import XCTest
+import WebKit
 
 class ImageFeedUITests: XCTestCase {
     private let app = XCUIApplication() 
@@ -28,7 +29,7 @@ class ImageFeedUITests: XCTestCase {
         
         loginTextField.tap()
         sleep(1)
-        loginTextField.typeText("secret@mail.ru")
+        loginTextField.typeText("dev@naev.ru")
         let startPoint1 = loginTextField.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
         let finishPoint1 = loginTextField.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: -5))
         startPoint1.press(forDuration: 0, thenDragTo: finishPoint1)
@@ -38,8 +39,8 @@ class ImageFeedUITests: XCTestCase {
         
         passwordTextField.tap()
         sleep(1)
-        passwordTextField.typeText("secret")
-        
+        passwordTextField.typeText("unsplsh")
+        sleep(1)
         webView.buttons["Login"].tap()
         
         let tablesQuery = app.tables
