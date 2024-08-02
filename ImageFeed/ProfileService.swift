@@ -12,17 +12,13 @@ final class ProfileService {
     private(set) var profile: Profile?
     
     private let urlSession = URLSession.shared
-    private let profileURL = "https://api.unsplash.com/me"
     private var task: URLSessionTask?
     private var lastToken: String?
-    
-    private init() {}
     
     func fetchProfile(_ token: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         assert(Thread.isMainThread)
         
         guard lastToken != token else {
-            print("[ProfileService: fetchProfile]: Invalid request")
             completion(.failure(AuthServiceError.invalidRequest))
             return
         }
@@ -31,7 +27,6 @@ final class ProfileService {
         lastToken = token
         
         guard let request = makeProfileDataRequest(token: token) else {
-            print("[ProfileService: fetchProfile]: Error while creating request")
             completion(.failure(AuthServiceError.invalidRequest))
             return
         }
@@ -48,9 +43,7 @@ final class ProfileService {
                     bio: data.bio ?? ""
                 )
                 completion(.success(self.profile!))
-            case .failure(let error):
-                print("[ProfileService: fetchProfile]: Network error")
-                completion(.failure(error))
+            case .failure(let error): completion(.failure(error))
             }
             self.task = nil
             self.lastToken = nil
@@ -60,7 +53,7 @@ final class ProfileService {
     }
     
     private func makeProfileDataRequest(token: String) -> URLRequest? {
-        guard let url = URL(string: profileURL) else { return nil }
+        guard let url = URL(string: "\(Constants.defaultBaseURLString)/me") else { return nil }
         
         var request = URLRequest(url: url)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")

@@ -11,14 +11,14 @@ import UIKit
 final class SplashViewController: UIViewController {
     private let showAuthenticationScreenSegueIdentifier = "ShowAuthenticationScreen"
     
-    private let storage = OAuth2TokenStorage.shared
+    private let storage = OAuth2TokenStorage()
     private let profileService = ProfileService.shared
     private let profileImageService = ProfileImageService.shared
     
     
     private var logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "launch-screen-logo")
+        imageView.image = UIImage(named: "Splash_Icon")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -126,9 +126,5 @@ extension SplashViewController: AuthViewControllerDelegate {
                 print(error)
             }
         }
-    }
-    
-    func authViewController(_ vc: AuthViewController, didAuthenticateWithCode code: String) {
-        switchToTabBarController()
     }
 }
